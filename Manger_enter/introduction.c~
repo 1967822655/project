@@ -1,0 +1,37 @@
+#include "head.h"
+#include "manger.h"
+#include "log_manger.h"
+#include "couse_manger.h"
+#include "stu_manger.h"
+
+void introduction(int menu)
+{
+    printf("\n");
+    if(menu==1)
+    {
+        printf(" * * * * * * * * * * * * * * * * * * * * * * * * * * * * *  \n");
+        printf("|                         课程管理                         |\n");
+        printf("|                                                          |\n");
+        printf("|  1 新增课程                                              |\n");
+        printf("|  2 删除课程                                              |\n");
+        printf("|  3 查看某课程详细信息（学分、课时、所选学生列表等）      |\n");
+        printf("|  4 修改某课程的信息（学分、课时、所学学生列表等）        |\n");
+        printf("|  5 查看表格信息                                          |\n");
+        printf("|  0 退出                                                  |\n");
+        printf(" * * * * * * * * * * * * * * * * * * * * * * * * * * * * *  \n\n");
+    }
+    else
+    {
+        printf(" * * * * * * * * * * * * * * * * * * * * * * * * * * * * *  \n");
+        printf("|                         学生管理                         |\n");
+        printf("|                                                          |\n");
+        printf("|  1 新增学生信息                                          |\n");
+        printf("|  2 删除学生信息                                          |\n");
+        printf("|  3 按学号、姓名查看学生详细信息                          |\n");
+        printf("|  4 修改学生信息                                          |\n");
+        printf("|  5 查看表格信息                                          |\n");
+        printf("|  0 退出                                                  |\n");
+        printf(" * * * * * * * * * * * * * * * * * * * * * * * * * * * * *  \n\n");
+    }
+
+}

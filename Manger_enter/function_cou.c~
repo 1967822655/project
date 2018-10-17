@@ -1,0 +1,23 @@
+#include "head.h"
+#include "manger.h"
+#include "log_manger.h"
+#include "couse_manger.h"
+#include "stu_manger.h"
+
+void function_cou(int child_menu)
+{
+    switch(child_menu)
+    {
+    case 1:
+        couse_add();break;
+    case 2:
+        couse_delete();break;
+    case 3:
+        couse_search();break;
+    case 4:
+        couse_modify();break;
+    case 5:
+        couse_print();
+
+    }
+}

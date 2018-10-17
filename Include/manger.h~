@@ -1,0 +1,31 @@
+#ifndef _MANGER_H_
+#define _MANGER_H_
+
+
+typedef struct student
+{
+    char number[15];/*学号*/
+    char name[30];/*学生姓名*/
+    int status[100];/*已选课程列表*/
+    float score;
+}stu;
+
+typedef struct course
+{
+    char number[15];/*课程编号*/
+    char name[30];/*课程名称*/
+    char explain[30];/*课程性质*/
+    int time;/*授课学时*/
+    int score;/*学分*/
+    int sum;/*已选人数*/
+    int max;/*人数上限*/
+}cou;
+cou cou_list[100];
+stu stu_list[100];
+
+void introduction(int menu);/*介绍*/
+void enter(int menu);/*功能接口*/
+void function_stu(int menu);/*学生管理功能*/
+void function_cou(int menu);/*课程管理功能*/
+
+#endif //MANGER_H_

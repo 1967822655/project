@@ -1,0 +1,76 @@
+#include "head.h"
+#include "manger.h"
+#include "log_manger.h"
+#include "stu_manger.h"
+
+void student_modify()
+{
+    int i,j,n,sum;
+    stu diff;
+    FILE *fp,*fp1;
+    char num[15];
+
+    fp=fopen("stu.txt","r");
+    fread(stu_list,sizeof(stu),100,fp);
+    fclose(fp);
+
+    printf("请输入需要修改的学生学号：\n");
+    scanf("%s",num);
+    getchar();
+    for(i=0;stu_list[i+1].number[0];i++)
+    {
+        if(strcmp(num,stu_list[i].number)==0)
+            break;
+    }
+
+    if(stu_list[i+1].number[0]==0)
+    {
+        printf("没有该学生!\n");
+    }
+    else
+    {
+        diff=stu_list[i];
+        fp1=fopen("cou.txt","r");
+        fread(cou_list,sizeof(cou),100,fp1);
+        fclose(fp1);
+        printf("请输入该学生修改后的信息：\n学生学号、学生姓名：【空格隔开】\n");
+        scanf("%s%s",stu_list[i].number,stu_list[i].name);
+        printf("下列课程已选输1，未选输0。【空格隔开】\n");
+
+        fp=fopen("stu.txt","w");
+        fp1=fopen("cou.txt","w");
+        n=i;
+        i=0;
+
+        while(cou_list[i].time||cou_list[i].score||cou_list[i].sum||cou_list[i].max)
+        {
+            printf("%s\t",cou_list[i].name);
+            i++;
+        }
+        printf("\n");
+
+        for(j=0;j<i;j++)
+        {
+            scanf("%d",&stu_list[n].status[j]);
+            if(stu_list[n].status[j]>diff.status[j])
+            {
+                cou_list[j].sum++;
+            }
+            else if(stu_list[n].status[j]<diff.status[j])
+            {
+                cou_list[j].sum--;
+            }
+        }
+
+        j=0;
+        while(stu_list[j+1].number[0])
+        {
+            j++;
+        }
+        printf("\n");
+        fwrite(stu_list,sizeof(stu),j,fp);
+        fwrite(cou_list,sizeof(cou),i,fp1);
+        fclose(fp1);
+        fclose(fp);
+    }
+}

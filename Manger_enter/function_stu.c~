@@ -1,0 +1,22 @@
+#include "head.h"
+#include "manger.h"
+#include "log_manger.h"
+#include "couse_manger.h"
+#include "stu_manger.h"
+
+void function_stu(int child_menu)
+{
+    switch(child_menu)
+    {
+    case 1:
+        student_add();break;
+    case 2:
+        student_delete();break;
+    case 3:
+        student_search();break;
+    case 4:
+        student_modify();break;
+    case 5:
+        student_print();
+    }
+}

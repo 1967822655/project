@@ -1,0 +1,36 @@
+#include "head.h"
+#include "manger.h"
+#include "log_manger.h"
+#include "couse_manger.h"
+#include "stu_manger.h"
+
+void enter(int menu)
+{
+    int child_menu=1;
+    if(menu==1)
+        while(child_menu)
+        {
+            introduction(menu);
+            printf("请输入选项：\n-->");
+            scanf("%d",&child_menu);
+            while(child_menu<0||child_menu>5)
+            {
+                printf("输入错误，请重新输入：\n-->");
+                scanf("%d",&child_menu);
+            }
+            function_cou(child_menu);
+        }
+    else if(menu==2)
+        while(child_menu)
+        {
+            introduction(menu);
+            printf("请输入选项：\n-->");
+            scanf("%d",&child_menu);
+            while(child_menu<0||child_menu>5)
+            {
+                printf("输入错误，请重新输入：\n-->");
+                scanf("%d",&child_menu);
+            }
+            function_stu(child_menu);
+        }
+}
